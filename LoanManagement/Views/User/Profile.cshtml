@@ -1,0 +1,195 @@
+﻿@model LoanManagement.Models.User
+
+@{
+    ViewData["Title"] = "پروفایل کاربر";
+}
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل کاربری</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+        background: #f5f5f5;
+        font-family: 'Tahoma', sans-serif;
+        direction: rtl;
+        text-align: right;
+        margin: 0;
+        padding: 0;
+    }
+
+    .profile-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 50px 20px; /* افزایش فاصله بالا و پایین */
+    }
+
+    .profile-card {
+        width: 90%;
+        max-width: 600px;
+        background: white;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        overflow: hidden;
+        padding: 30px; /* افزایش فاصله داخلی کارت */
+        text-align: center;
+    }
+
+    .profile-header {
+        background: linear-gradient(135deg, #ff416c, #ff4b2b);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+    }
+
+    .profile-header h2 {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .profile-info {
+        text-align: right;
+    }
+
+    .profile-info table {
+        width: 100%;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .profile-info th, .profile-info td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .profile-info th {
+        background: #ff4b2b;
+        color: white;
+        font-weight: bold;
+    }
+
+        .profile-info th {
+        background: #6a11cb; /* تغییر رنگ از نارنجی به آبی مایل به بنفش */
+        color: white;
+        font-weight: bold;
+    }
+
+    .btn-custom {
+        background: #6a11cb; /* تغییر رنگ دکمه */
+        color: white;
+        padding: 12px 25px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-custom:hover {
+        background: #8e44ad; /* رنگ بنفش تیره‌تر هنگام هاور */
+        transform: scale(1.05);
+    }
+
+
+    media (max-width: 768px) {
+        .profile-card {
+            width: 100%;
+            padding: 20px;
+        }
+
+        .profile-info th, .profile-info td {
+            font-size: 14px;
+            padding: 10px;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <h2>پروفایل کاربری</h2>
+            </div>
+            <div class="profile-info">
+                <table class="table">
+                    <tr>
+                        <th>کد ملی</th>
+                        <td>@Model.NationalId</td>
+                    </tr>
+                    <tr>
+                        <th>نام</th>
+                        <td>@Model.FirstName</td>
+                    </tr>
+                    <tr>
+                        <th>نام خانوادگی</th>
+                        <td>@Model.LastName</td>
+                    </tr>
+                    <tr>
+                        <th>نام پدر</th>
+                        <td>@Model.FatherName</td>
+                    </tr>
+                    <tr>
+                        <th>شماره تلفن</th>
+                        <td>@Model.PhoneNumber</td>
+                    </tr>
+                    <tr>
+                        <th>ایمیل</th>
+                        <td>@Model.Email</td>
+                    </tr>
+                    <tr>
+                        <th>شماره تلفن منزل</th>
+                        <td>@Model.HomeNumber</td>
+                    </tr>
+                    <tr>
+                        <th>تاریخ تولد</th>
+                        <td>@Model.BirthDate</td>
+                    </tr>
+                    <tr>
+                        <th>آدرس</th>
+                        <td>@Model.Address</td>
+                    </tr>
+                    <tr>
+                        <th>کد پستی</th>
+                        <td>@Model.PostalCode</td>
+                    </tr>
+                    <tr>
+                        <th>تاریخ ثبت‌نام</th>
+                        <td>@Model.RegisteryDate</td>
+                    </tr>
+                    <tr>
+                        <th>وام‌های دریافت‌شده</th>
+                        <td>@Model.LoansReceived</td>
+                    </tr>
+                    <tr>
+                        <th>موجودی حساب</th>
+                        <td>@Model.Balance</td>
+                    </tr>
+                    <tr>
+                        <th>بدهی</th>
+                        <td>@Model.Debt</td>
+                    </tr>
+                    <tr>
+                        <th>اقساط باقی‌مانده</th>
+                        <td>@Model.RemainingInstallments</td>
+                    </tr>
+                    <tr>
+                        <th>وام فعال</th>
+                        <td>@(Model.ActiveLoan ? "بله" : "خیر")</td>
+                    </tr>
+                </table>
+            </div>
+            <a href="@Url.Action("Dashboard", "Account")" class="btn-custom">بازگشت به داشبورد</a>
+        </div>
+    </div>
+</body>
+</html>

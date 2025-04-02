@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>داشبورد کاربر</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: 'Tahoma', sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        .dashboard-card {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 600px;
+            background: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+        .dashboard-left {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        .dashboard-left h2 {
+            font-weight: bold;
+        }
+        .list-group {
+            width: 100%;
+        }
+        .list-group-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .list-group-item a:hover {
+            background: #ff4b2b;
+            color: white;
+            transform: scale(1.05);
+        }
+        .logout {
+            color: red;
+        }
+        media (min-width: 768px) {
+            .dashboard-card {
+                flex-direction: row;
+                width: 60%;
+                text-align: right;
+            }
+            .dashboard-left {
+                flex: 1;
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 0;
+            }
+            .dashboard-right {
+                flex: 1;
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-card">
+            <div class="dashboard-left">
+                <h2>سلام، @ViewBag.UserName!</h2>
+                <p>به داشبورد خود خوش آمدید</p>
+            </div>
+            <div class="dashboard-right">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="@Url.Action("Profile", "User")">مشاهده اطلاعات شخصی</a></li>
+                    <li class="list-group-item"><a href="@Url.Action("Loans", "User")">مشاهده وام‌های دریافتی</a></li>
+                    <li class="list-group-item"><a href="@Url.Action("Payments", "User")">مشاهده پرداخت‌ها</a></li>
+                    <li class="list-group-item"><a href="@Url.Action("Logout", "Account")" class="logout">خروج از حساب</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
